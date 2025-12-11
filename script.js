@@ -89,11 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const rsvpCards = document.querySelectorAll('#rsvp-card');
     const locationCards = document.querySelectorAll('#location-card');
     const detailsCards = document.querySelectorAll('#details-card');
+    const galleryCards = document.querySelectorAll('#gallery-card');
     
     // Modal elements
     const rsvpModal = document.getElementById('rsvp-modal');
     const locationModal = document.getElementById('location-modal');
     const detailsModal = document.getElementById('details-modal');
+    const galleryModal = document.getElementById('gallery-modal');
     const closeButtons = document.querySelectorAll('.close-btn');
     
     // Debug: Check if elements are found
@@ -245,6 +247,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add event listeners to all Gallery cards
+    galleryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            openModal(galleryModal);
+        });
+        
+        card.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            openModal(galleryModal);
+        });
+    });
+
     // Close modal handlers
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -260,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close modal when clicking/touching outside
-    [rsvpModal, locationModal, detailsModal].forEach(modal => {
+    [rsvpModal, locationModal, detailsModal, galleryModal].forEach(modal => {
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal(modal);
@@ -323,7 +337,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add keyboard support for closing modals
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            [rsvpModal, locationModal, detailsModal].forEach(modal => {
+            [rsvpModal, locationModal, detailsModal, galleryModal].forEach(modal => {
                 if (!modal.classList.contains('hidden')) {
                     closeModal(modal);
                 }

@@ -317,8 +317,9 @@ body {
     pointer-events: auto;
     background: transparent;
     border-radius: 0 0 10px 10px;
-    max-height: 65%;
+    max-height: 60%;
     overflow-y: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
     overscroll-behavior: contain;
@@ -326,9 +327,11 @@ body {
 
 .open-envelope-content .cards-column {
     flex: 1;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    flex-shrink: 0;
 }
 
 .open-envelope-content .card {
@@ -445,6 +448,28 @@ body {
 .open-envelope-content .card.gallery-card {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.open-envelope-content .card.gallery-card .gallery-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.open-envelope-content .card.gallery-card .click-details-text {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    text-align: left;
+    font-style: italic;
+    font-size: 11px;
+    color: #000;
+    margin: 0;
+    padding: 0;
 }
 
 .open-envelope-content .card.savedate-card {
@@ -1051,6 +1076,57 @@ body {
     box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
 }
 
+/* Gallery Modal Styles */
+.gallery-modal-content {
+    text-align: center;
+}
+
+.gallery-info .parents-section {
+    margin-bottom: 20px;
+}
+
+.gallery-info .parents-label {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.gallery-info .parents-names {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    margin: 8px 0;
+}
+
+.gallery-info .together-text {
+    font-size: 16px;
+    font-style: italic;
+    color: #888;
+    margin: 15px 0;
+}
+
+.gallery-info .invite-text-modal {
+    font-size: 18px;
+    font-style: italic;
+    color: #b8860b;
+    margin: 25px 0 15px;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.gallery-info .couple-image-section {
+    margin-top: 20px;
+}
+
+.gallery-info .couple-modal-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* Details Info */
 .details-info {
     display: flex;
@@ -1158,6 +1234,7 @@ body {
         border-radius: 0;
         max-height: 55%;
         overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
         overscroll-behavior: contain;
@@ -1165,9 +1242,11 @@ body {
 
     .open-envelope-content .cards-column {
         flex: 1;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 10px;
+        flex-shrink: 0;
     }
 
     .open-envelope-content .card {
@@ -1256,6 +1335,7 @@ body {
     .open-envelope-content .card.gallery-card {
         background: rgba(255, 255, 255, 1);
         color: #1f2937;
+        padding: 0;
     }
 
     .open-envelope-content .card.registry-card {
@@ -1457,6 +1537,7 @@ body {
         border-radius: 0;
         max-height: 55%;
         overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
         overscroll-behavior: contain;
@@ -1464,9 +1545,11 @@ body {
 
     .open-envelope-content .cards-column {
         flex: 1;
+        min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 8px;
+        flex-shrink: 0;
     }
 
     .open-envelope-content .card {
@@ -1559,6 +1642,7 @@ body {
     .open-envelope-content .card.gallery-card {
         background: rgba(255, 255, 255, 1);
         color: #1f2937;
+        padding: 0;
     }
 
     .open-envelope-content .card.registry-card {
