@@ -292,7 +292,7 @@ body {
     max-width: 100%;
     align-items: start;
     pointer-events: auto;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    background: transparent;
     border-radius: 0 0 10px 10px;
     max-height: 60%;
     overflow-y: auto;
@@ -315,7 +315,7 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: transform 0.15s ease;
-    animation: slideUpCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: slideUpCard 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     opacity: 0;
 }
 
@@ -329,30 +329,47 @@ body {
 }
 
 .open-envelope-content .card:nth-child(2) {
-    animation-delay: 5.15s;
-}
-
-.open-envelope-content .card:nth-child(3) {
     animation-delay: 5.3s;
 }
 
+.open-envelope-content .card:nth-child(3) {
+    animation-delay: 5.6s;
+}
+
 .open-envelope-content .card:nth-child(4) {
-    animation-delay: 5.45s;
+    animation-delay: 5.9s;
 }
 
 .open-envelope-content .card:nth-child(5) {
-    animation-delay: 5.6s;
+    animation-delay: 6.2s;
 }
 
 /* Card backgrounds with gradients and transparency */
 .open-envelope-content .card.rsvp-card {
-    background: linear-gradient(135deg, rgba(244, 63, 94, 0.9), rgba(236, 72, 153, 0.9));
-    color: white;
+    background: rgba(255, 255, 255, 1);
+    color: #1f2937;
+    justify-content: center;
+    align-items: center;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-title {
+    font-family: 'Italianno', cursive;
+    font-size: 42px;
+    font-weight: 400;
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.3));
+    text-shadow: none;
+    margin: 0;
+    text-align: center;
 }
 
 .open-envelope-content .card.location-card {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(16, 185, 129, 0.9));
-    color: white;
+    background: rgba(255, 255, 255, 1);
+    color: #1f2937;
+    padding: 0;
 }
 
 .open-envelope-content .card.details-card {
@@ -455,13 +472,26 @@ body {
 }
 
 .open-envelope-content .card.gallery-card h3,
-.open-envelope-content .card.registry-card h3 {
+.open-envelope-content .card.registry-card h3,
+.open-envelope-content .card.location-card h3 {
     color: #1f2937;
 }
 
 .open-envelope-content .card.gallery-card p,
-.open-envelope-content .card.registry-card p {
+.open-envelope-content .card.registry-card p,
+.open-envelope-content .card.location-card p {
     color: #4b5563;
+}
+
+.open-envelope-content .card.location-card h3,
+.open-envelope-content .card.location-card p {
+    padding: 0 15px;
+    text-align: center;
+}
+
+.open-envelope-content .card.location-card h3 {
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 @keyframes fadeInCards {
@@ -639,7 +669,7 @@ body {
 @keyframes slideUpCard {
     0% {
         opacity: 0;
-        transform: translateY(100px) scale(0.8);
+        transform: translateY(150px) scale(0.9);
     }
     100% {
         opacity: 1;
@@ -1021,7 +1051,7 @@ body {
         max-width: 100%;
         align-items: start;
         pointer-events: auto;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        background: transparent;
         border-radius: 0;
         max-height: 55%;
         overflow-y: auto;
@@ -1044,7 +1074,7 @@ body {
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         transition: transform 0.15s ease;
-        animation: slideUpCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        animation: slideUpCard 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         opacity: 0;
     }
 
@@ -1058,30 +1088,32 @@ body {
     }
 
     .open-envelope-content .card:nth-child(2) {
-        animation-delay: 5.15s;
-    }
-
-    .open-envelope-content .card:nth-child(3) {
         animation-delay: 5.3s;
     }
 
+    .open-envelope-content .card:nth-child(3) {
+        animation-delay: 5.6s;
+    }
+
     .open-envelope-content .card:nth-child(4) {
-        animation-delay: 5.45s;
+        animation-delay: 5.9s;
     }
 
     .open-envelope-content .card:nth-child(5) {
-        animation-delay: 5.6s;
+        animation-delay: 6.2s;
     }
 
     /* Card backgrounds with gradients and transparency */
     .open-envelope-content .card.rsvp-card {
-        background: linear-gradient(135deg, rgba(244, 63, 94, 0.9), rgba(236, 72, 153, 0.9));
-        color: white;
+        background: rgba(255, 255, 255, 1);
+        color: #1f2937;
+        justify-content: center;
     }
 
     .open-envelope-content .card.location-card {
-        background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(16, 185, 129, 0.9));
-        color: white;
+        background: rgba(255, 255, 255, 1);
+        color: #1f2937;
+        padding: 0;
     }
 
     .open-envelope-content .card.details-card {
@@ -1100,13 +1132,17 @@ body {
     }
 
     .open-envelope-content .card.rsvp-card,
-    .open-envelope-content .card.location-card,
     .open-envelope-content .card.details-card {
         min-height: 120px;
     }
 
-    .open-envelope-content .card.gallery-card {
+    .open-envelope-content .card.gallery-card,
+    .open-envelope-content .card.location-card {
         min-height: 140px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-title {
+        font-size: 38px;
     }
 
     .open-envelope-content .card.registry-card {
@@ -1283,7 +1319,7 @@ body {
         max-width: 100%;
         align-items: start;
         pointer-events: auto;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        background: transparent;
         border-radius: 0;
         max-height: 55%;
         overflow-y: auto;
@@ -1306,7 +1342,7 @@ body {
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         transition: transform 0.15s ease;
-        animation: slideUpCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        animation: slideUpCard 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         opacity: 0;
     }
 
@@ -1320,30 +1356,36 @@ body {
     }
 
     .open-envelope-content .card:nth-child(2) {
-        animation-delay: 5.15s;
-    }
-
-    .open-envelope-content .card:nth-child(3) {
         animation-delay: 5.3s;
     }
 
+    .open-envelope-content .card:nth-child(3) {
+        animation-delay: 5.6s;
+    }
+
     .open-envelope-content .card:nth-child(4) {
-        animation-delay: 5.45s;
+        animation-delay: 5.9s;
     }
 
     .open-envelope-content .card:nth-child(5) {
-        animation-delay: 5.6s;
+        animation-delay: 6.2s;
     }
 
     /* Card backgrounds with gradients and transparency */
     .open-envelope-content .card.rsvp-card {
-        background: linear-gradient(135deg, rgba(244, 63, 94, 0.9), rgba(236, 72, 153, 0.9));
-        color: white;
+        background: rgba(255, 255, 255, 1);
+        color: #1f2937;
+        justify-content: center;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-title {
+        font-size: 32px;
     }
 
     .open-envelope-content .card.location-card {
-        background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(16, 185, 129, 0.9));
-        color: white;
+        background: rgba(255, 255, 255, 1);
+        color: #1f2937;
+        padding: 0;
     }
 
     .open-envelope-content .card.details-card {
@@ -1362,12 +1404,12 @@ body {
     }
 
     .open-envelope-content .card.rsvp-card,
-    .open-envelope-content .card.location-card,
     .open-envelope-content .card.details-card {
         min-height: 100px;
     }
 
-    .open-envelope-content .card.gallery-card {
+    .open-envelope-content .card.gallery-card,
+    .open-envelope-content .card.location-card {
         min-height: 120px;
     }
 

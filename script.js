@@ -127,6 +127,28 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show open envelope
             envelopeClosed.style.display = 'none';
             envelopeOpened.classList.remove('hidden');
+            
+            // Handle video - play once fully, then loop last 1.3 seconds
+            const inviteVideo = document.getElementById('invite-video');
+            if (inviteVideo) {
+                let hasPlayedOnce = false;
+                
+                // When video ends, mark as played once
+                inviteVideo.addEventListener('ended', function() {
+                    hasPlayedOnce = true;
+                    // Jump to last 1.3 seconds and play
+                    inviteVideo.currentTime = inviteVideo.duration - 1.3;
+                    inviteVideo.play();
+                });
+                
+                // After first full play, loop only last 1.3 seconds
+                inviteVideo.addEventListener('timeupdate', function() {
+                    if (hasPlayedOnce && inviteVideo.currentTime >= inviteVideo.duration - 0.1) {
+                        // Jump back to start of last 1.3 seconds
+                        inviteVideo.currentTime = inviteVideo.duration - 1.3;
+                    }
+                });
+            }
         }, 300);
     }
     
