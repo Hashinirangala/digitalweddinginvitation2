@@ -170,19 +170,33 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Card click/touch handlers
+    let scrollPosition = 0;
+    
     function openModal(modal) {
+        // Save current scroll position
+        scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        // Prevent body scroll on mobile
         document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
         document.body.style.width = '100%';
     }
     
     function closeModal(modal) {
         modal.classList.add('hidden');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
         document.body.style.position = '';
+        document.body.style.top = '';
         document.body.style.width = '';
+        // Restore scroll position
+        window.scrollTo(0, scrollPosition);
+        
+        // Re-enable scrolling on cards container
+        const cardsContainer = document.querySelector('.open-envelope-content .cards-container');
+        if (cardsContainer) {
+            cardsContainer.style.overflowY = 'auto';
+            cardsContainer.style.touchAction = 'pan-y';
+        }
     }
     
     // Add event listeners to all RSVP cards

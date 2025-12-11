@@ -22,7 +22,7 @@
     <!-- Envelope Section (Initial View) -->
     <div id="envelope-container" class="envelope-container">
         <div class="envelope-wrapper" id="envelope-wrapper">
-            <h1 class="couple-names">Sajini & Malindu</h1>
+            <h1 class="couple-names">Malindu & Sajini</h1>
             <p class="wedding-date">15.01.2026</p>
             <div class="envelope-closed" id="envelope-closed">
                 <img src="envelope.jpg" alt="Wedding Invitation Envelope" class="envelope-image" id="envelope-image">
@@ -35,34 +35,46 @@
             <div class="open-envelope-content">
                 <div class="image-wrapper">
                     <video src="open invite.mp4" alt="Wedding Invitation" class="envelope-background-image" autoplay muted playsinline id="invite-video"></video>
+                    <!-- Ring image appearing with cards -->
+                    <img src="Ring.png" alt="Wedding Ring" class="ring-image">
+                    
                     <!-- Clickable Cards Section - Overlay on video -->
                     <div class="cards-container">
-                        <div class="card rsvp-card" id="rsvp-card">
-                            <h3 class="rsvp-title">Kindly RSVP</h3>
+                        <!-- Left Column - slides in from left -->
+                        <div class="cards-column left-column">
+                            <div class="card gallery-card" id="gallery-card">
+                                <img src="couple.jpg" alt="Couple Photo" class="gallery-card-image">
+                                <h3>Details</h3>
+                                <p>View our photos</p>
+                            </div>
+
+                            <div class="card rsvp-card" id="rsvp-card">
+                                <h3 class="rsvp-title">Kindly RSVP</h3>
+                            </div>
+
+                            <div class="card location-card" id="location-card">
+                                <img src="location1.jpg" alt="Venue Location" class="gallery-card-image">
+                                <h3>Location</h3>
+                                <p>Find the venue details</p>
+                            </div>
                         </div>
 
-                        <div class="card location-card" id="location-card">
-                            <img src="location1.jpg" alt="Venue Location" class="gallery-card-image">
-                            <h3>Location</h3>
-                            <p>Find the venue details</p>
-                        </div>
+                        <!-- Right Column - slides in from right -->
+                        <div class="cards-column right-column">
+                            <div class="card savedate-card" id="savedate-card">
+                                <img src="save the date.jpg" alt="Save the Date" class="full-card-image">
+                            </div>
 
-                        <div class="card details-card" id="details-card">
-                            <div class="card-icon">📅</div>
-                            <h3>Details</h3>
-                            <p>Event information & schedule</p>
-                        </div>
+                            <div class="card details-card" id="details-card">
+                                <p class="faq-small">click for the</p>
+                                <h3 class="faq-title">FAQs</h3>
+                            </div>
 
-                        <div class="card gallery-card" id="gallery-card">
-                            <img src="couple.jpg" alt="Couple Photo" class="gallery-card-image">
-                            <h3>Gallery</h3>
-                            <p>View our photos</p>
-                        </div>
-
-                        <div class="card registry-card" id="registry-card">
-                            <div class="card-icon">🎁</div>
-                            <h3>Registry</h3>
-                            <p>Gift registry information</p>
+                            <div class="card registry-card" id="registry-card">
+                                <div class="card-icon">🎁</div>
+                                <h3>Registry</h3>
+                                <p>Gift registry information</p>
+                            </div>
                         </div>
                     </div>
                 </div>
