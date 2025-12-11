@@ -30,11 +30,6 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
 }
 
 /* Envelope Container */
@@ -155,16 +150,17 @@ body {
 /* Open Envelope Styles */
 .envelope-opened {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: stretch;
     z-index: 1001;
-    padding-top: 20px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
+    padding: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .envelope-opened.hidden {
@@ -180,30 +176,23 @@ body {
 
 .open-envelope-content {
     position: relative;
-    width: 500px;
-    max-width: 90vw;
-    height: auto;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
     perspective: 1000px;
     border-radius: 10px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    margin-bottom: 150px;
-    margin-left: auto;
-    margin-right: auto;
+    overflow: visible;
+    margin: 0 auto;
     background: transparent;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    gap: 0;
 }
 
 .image-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     height: 100%;
     z-index: 1;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 10px;
 }
 
@@ -218,26 +207,15 @@ body {
 }
 
 .content-row {
-    position: relative;
-    width: 100%;
-    z-index: 2;
+    display: none;
 }
 
 .row-1 {
-    min-height: 50vh;
-    background: transparent !important;
-    pointer-events: none;
-    position: relative;
-    z-index: 1;
+    display: none;
 }
 
 .row-2 {
-    min-height: 50vh;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: transparent;
-    pointer-events: none;
+    display: none;
 }
 
 .envelope-background-image {
@@ -298,25 +276,26 @@ body {
     border-top: 1px solid rgba(139, 69, 19, 0.2);
 }
 
-/* Cards above video, animating from below */
+/* Cards overlay on top of video, animating from below */
 .open-envelope-content .cards-container {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50vh;
     z-index: 15;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 12px;
     row-gap: 12px;
-    padding: 32px 12px 24px;
+    padding: 16px 12px 24px;
     width: 100%;
     max-width: 100%;
     align-items: start;
-    overflow-y: auto;
     pointer-events: auto;
-    background: transparent;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    border-radius: 0 0 10px 10px;
+    max-height: 60%;
+    overflow-y: auto;
 }
 
 .open-envelope-content .card {
@@ -972,11 +951,14 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
-        position: fixed;
         width: 100vw;
-        height: 100vh;
-        height: calc(var(--vh, 1vh) * 100);
-        height: 100dvh;
+        min-height: 100vh;
+        min-height: calc(var(--vh, 1vh) * 100);
+        min-height: 100dvh;
+    }
+
+    .envelope-opened {
+        padding: 0;
     }
 
     .couple-names {
@@ -997,18 +979,20 @@ body {
     }
 
     .open-envelope-content {
-        width: 90vw;
-        max-width: 400px;
-        min-height: 280px;
-        height: auto;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
         background: transparent;
         overflow: visible;
+        border-radius: 0;
+        box-shadow: none;
     }
     
     .image-wrapper {
         position: relative;
         width: 100%;
-        height: auto;
+        height: 100%;
+        border-radius: 0;
     }
 
     .invite-initials {
@@ -1023,21 +1007,42 @@ body {
     }
 
     .open-envelope-content .cards-container {
-        height: 50vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 15;
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 12px;
-        row-gap: 12px;
-        padding: 32px 12px 24px;
+        column-gap: 10px;
+        row-gap: 10px;
+        padding: 16px 10px calc(20px + env(safe-area-inset-bottom));
         width: 100%;
         max-width: 100%;
-        background: transparent;
+        align-items: start;
+        pointer-events: auto;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        border-radius: 0;
+        max-height: 55%;
+        overflow-y: auto;
     }
 
     .open-envelope-content .card {
         padding: 16px;
+        margin: 0;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        z-index: 15;
+        border-radius: 0;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        pointer-events: auto;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         transition: transform 0.15s ease;
         animation: slideUpCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         opacity: 0;
@@ -1136,12 +1141,14 @@ body {
     .open-envelope-content .card h3 {
         font-size: 14px;
         margin-bottom: 8px;
+        pointer-events: none;
         font-weight: 400;
         line-height: 1.5;
     }
 
     .open-envelope-content .card p {
         font-size: 12px;
+        pointer-events: none;
         line-height: 1.625;
         opacity: 0.9;
     }
@@ -1210,6 +1217,10 @@ body {
 }
 
 @media (max-width: 480px) {
+    .envelope-opened {
+        padding: 0;
+    }
+
     .couple-names {
         font-size: 28px;
         letter-spacing: 2px;
@@ -1230,17 +1241,20 @@ body {
     }
 
     .open-envelope-content {
-        width: 85vw;
-        min-height: 250px;
-        height: auto;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
         background: transparent;
         overflow: visible;
+        border-radius: 0;
+        box-shadow: none;
     }
     
     .image-wrapper {
         position: relative;
         width: 100%;
-        height: auto;
+        height: 100%;
+        border-radius: 0;
     }
 
     .invite-initials {
@@ -1255,21 +1269,42 @@ body {
     }
 
     .open-envelope-content .cards-container {
-        height: 50vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 15;
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        column-gap: 12px;
-        row-gap: 12px;
-        padding: 32px 12px 24px;
+        column-gap: 8px;
+        row-gap: 8px;
+        padding: 12px 8px calc(16px + env(safe-area-inset-bottom));
         width: 100%;
         max-width: 100%;
-        background: transparent;
+        align-items: start;
+        pointer-events: auto;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+        border-radius: 0;
+        max-height: 55%;
+        overflow-y: auto;
     }
 
     .open-envelope-content .card {
-        padding: 16px;
+        padding: 14px;
+        margin: 0;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        z-index: 15;
+        border-radius: 0;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+        pointer-events: auto;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         transition: transform 0.15s ease;
         animation: slideUpCard 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         opacity: 0;
@@ -1368,12 +1403,14 @@ body {
     .open-envelope-content .card h3 {
         font-size: 14px;
         margin-bottom: 8px;
+        pointer-events: none;
         font-weight: 400;
         line-height: 1.5;
     }
 
     .open-envelope-content .card p {
         font-size: 12px;
+        pointer-events: none;
         line-height: 1.625;
         opacity: 0.9;
     }
