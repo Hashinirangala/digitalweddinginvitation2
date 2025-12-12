@@ -1184,6 +1184,15 @@ body {
     font-weight: 300;
 }
 
+.modal-content h2.modal-title-gold {
+    font-family: 'Italianno', cursive;
+    font-size: 48px;
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 /* RSVP Form */
 #rsvp-form {
     display: flex;
@@ -1363,15 +1372,26 @@ body {
 
 .event-details-container {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: row;
+    gap: 15px;
+}
+
+@media (max-width: 480px) {
+    .event-details-container {
+        gap: 10px;
+    }
+}
+
+.event-section {
+    flex: 1;
 }
 
 .event-section {
     background: #faf9f7;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    flex: 1;
 }
 
 .event-section .event-image {
@@ -1385,12 +1405,19 @@ body {
 
 .event-section .event-title {
     font-family: 'Italianno', cursive;
-    font-size: 36px;
+    font-size: 28px;
     background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 10px 0;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .event-section .event-title {
+        font-size: 22px;
+    }
 }
 
 .event-section .event-time {
