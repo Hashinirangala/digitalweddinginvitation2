@@ -1109,6 +1109,9 @@ body {
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
     position: relative;
     animation: slideUp 0.3s ease;
 }
@@ -1335,6 +1338,29 @@ body {
     margin-bottom: 25px;
 }
 
+.venue-location {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #faf9f7;
+    border-radius: 10px;
+}
+
+.venue-location .venue-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.venue-location .venue-address {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
 .event-details-container {
     display: flex;
     flex-direction: column;
@@ -1380,6 +1406,47 @@ body {
     font-size: 16px;
     color: #666;
     margin: 5px 0;
+}
+
+/* FAQ Modal */
+.faq-modal-title {
+    font-family: 'Italianno', cursive;
+    font-size: 42px;
+    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.faq-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    padding: 15px 20px;
+    background: #faf9f7;
+    border-radius: 10px;
+    border-left: 3px solid #daa520;
+}
+
+.faq-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.faq-item p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* Details Info */
@@ -1429,7 +1496,7 @@ body {
     }
     
     .open-envelope-content .ring-image {
-        bottom: 75%;
+        bottom: 80%;
         width: 120px;
     }
 
@@ -1731,12 +1798,12 @@ body {
     }
 
     .open-envelope-content .you-are-invited {
-        bottom: 85%;
+        bottom: 90%;
         font-size: 28px;
     }
     
     .open-envelope-content .ring-image {
-        bottom: 75%;
+        bottom: 80%;
         width: 100px;
     }
 
