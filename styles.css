@@ -1506,18 +1506,18 @@ body {
 
 .registry-modal-content .details-modal-title {
     font-family: 'Italianno', cursive;
-    font-size: 48px;
+    font-size: 42px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .venue-location {
     text-align: center;
-    margin-bottom: 25px;
-    padding: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
     background: #faf9f7;
     border-radius: 10px;
 }
@@ -1534,18 +1534,35 @@ body {
     font-family: 'Cormorant Garamond', serif;
     font-size: 14px;
     color: #666;
-    margin: 0;
+    margin: 0 0 10px 0;
+}
+
+.venue-location .map-link {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #764ba2;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid #764ba2;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.venue-location .map-link:hover {
+    background: #764ba2;
+    color: white;
 }
 
 .event-details-container {
     display: flex;
     flex-direction: row;
-    gap: 15px;
+    gap: 10px;
 }
 
 @media (max-width: 480px) {
     .event-details-container {
-        gap: 10px;
+        gap: 8px;
     }
 }
 
@@ -1555,8 +1572,8 @@ body {
 
 .event-section {
     background: #faf9f7;
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: 10px;
+    padding: 10px;
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
     flex: 1;
 }
@@ -1565,19 +1582,27 @@ body {
     width: 100%;
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    border-radius: 8px;
+    margin-bottom: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .event-section .event-title {
     font-family: 'Italianno', cursive;
-    font-size: 28px;
+    font-size: 24px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin: 10px 0;
+    margin: 5px 0 3px 0;
+    text-align: center;
+}
+
+.event-section .event-venue {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #666;
+    margin: 0;
     text-align: center;
 }
 
