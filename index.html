@@ -35,6 +35,12 @@
             <div class="open-envelope-content">
                 <div class="image-wrapper">
                     <video src="open invite.mp4" alt="Wedding Invitation" class="envelope-background-image" autoplay muted playsinline id="invite-video"></video>
+                    <!-- Back button to return to envelope -->
+                    <button class="back-to-envelope" id="back-btn">
+                        <span class="back-icon">✉</span>
+                        <span class="back-text">Back</span>
+                    </button>
+                    
                     <!-- Ring image appearing with cards -->
                     <img src="Ring.png" alt="Wedding Ring" class="ring-image">
                     
@@ -43,19 +49,16 @@
                         <!-- Left Column - slides in from left -->
                         <div class="cards-column left-column">
                         <div class="card gallery-card" id="gallery-card">
-                            <img src="couple.jpg" alt="Couple Photo" class="gallery-card-image">
-                            <p class="click-details-text">click for details</p>
+                            <img src="location1.jpg" alt="Location Photo" class="gallery-card-image">
                         </div>
 
                             <div class="card rsvp-card" id="rsvp-card">
                                 <h3 class="rsvp-title">Kindly RSVP</h3>
                             </div>
 
-                            <div class="card location-card" id="location-card">
-                                <img src="location1.jpg" alt="Venue Location" class="gallery-card-image">
-                                <h3>Location</h3>
-                                <p>Find the venue details</p>
-                            </div>
+                        <div class="card location-card" id="location-card">
+                            <img src="couple.jpg" alt="Couple Photo" class="gallery-card-image">
+                        </div>
                         </div>
 
                         <!-- Right Column - slides in from right -->
@@ -188,9 +191,6 @@
                     <p class="parents-label">Parents of Groom</p>
                     <p class="parents-names">Mr. Amarasinghe Arachchilage Chandrarathna & Mrs. Thusitha Samarawickrama</p>
                     <p class="invite-text-modal">We invite you to join us on this very special day</p>
-                </div>
-                <div class="couple-image-section">
-                    <img src="couple2.jpg" alt="Couple" class="couple-modal-image">
                 </div>
             </div>
         </div>

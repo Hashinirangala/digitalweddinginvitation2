@@ -276,10 +276,65 @@ body {
     border-top: 1px solid rgba(139, 69, 19, 0.2);
 }
 
+/* Back to envelope button */
+.back-to-envelope {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInButton 0.8s ease forwards;
+    animation-delay: 6s;
+}
+
+.back-to-envelope:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.back-to-envelope:active {
+    transform: scale(0.95);
+}
+
+.back-to-envelope .back-icon {
+    font-size: 16px;
+}
+
+.back-to-envelope .back-text {
+    font-weight: 500;
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Ring image above cards */
 .open-envelope-content .ring-image {
     position: absolute;
-    top: 28%;
+    top: 18%;
     left: 50%;
     transform: translateX(-50%);
     width: 150px;
@@ -419,6 +474,8 @@ body {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
     padding: 0;
+    overflow: hidden;
+    line-height: 0;
 }
 
 .open-envelope-content .card.details-card {
@@ -451,13 +508,17 @@ body {
     padding: 0;
     position: relative;
     overflow: hidden;
+    cursor: default;
+    pointer-events: none;
+    line-height: 0;
 }
 
 .open-envelope-content .card.gallery-card .gallery-card-image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
+    vertical-align: bottom;
 }
 
 .open-envelope-content .card.gallery-card .click-details-text {
@@ -480,10 +541,9 @@ body {
 
 .open-envelope-content .card.savedate-card .full-card-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     display: block;
-    min-height: 120px;
 }
 
 .open-envelope-content .card.registry-card {
@@ -1169,7 +1229,7 @@ body {
     }
 
     .open-envelope-content .ring-image {
-        top: 30%;
+        top: 20%;
         width: 120px;
     }
 
@@ -1470,7 +1530,7 @@ body {
     }
 
     .open-envelope-content .ring-image {
-        top: 32%;
+        top: 22%;
         width: 100px;
     }
 

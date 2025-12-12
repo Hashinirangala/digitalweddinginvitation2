@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const locationCards = document.querySelectorAll('#location-card');
     const detailsCards = document.querySelectorAll('#details-card');
     const galleryCards = document.querySelectorAll('#gallery-card');
+    const savedateCards = document.querySelectorAll('#savedate-card');
     
     // Modal elements
     const rsvpModal = document.getElementById('rsvp-modal');
@@ -159,6 +160,44 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         openEnvelope();
     });
+
+    // Back to envelope button handler
+    const backBtn = document.getElementById('back-btn');
+    if (backBtn) {
+        function goBackToEnvelope() {
+            // Hide open envelope
+            envelopeOpened.classList.add('hidden');
+            
+            // Reset video
+            const inviteVideo = document.getElementById('invite-video');
+            if (inviteVideo) {
+                inviteVideo.currentTime = 0;
+                inviteVideo.pause();
+            }
+            
+            // Show envelope elements again
+            envelopeClosed.style.display = '';
+            envelopeClosed.style.opacity = '1';
+            if (coupleNames) {
+                coupleNames.style.display = '';
+                coupleNames.style.opacity = '1';
+            }
+            if (weddingDate) {
+                weddingDate.style.display = '';
+                weddingDate.style.opacity = '1';
+            }
+            if (clickText) {
+                clickText.style.display = '';
+                clickText.style.opacity = '1';
+            }
+        }
+        
+        backBtn.addEventListener('click', goBackToEnvelope);
+        backBtn.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            goBackToEnvelope();
+        });
+    }
 
     // Add hover effect to envelope (desktop only)
     if (window.matchMedia('(hover: hover)').matches) {
@@ -247,8 +286,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Add event listeners to all Gallery cards
-    galleryCards.forEach(card => {
+    // Add event listeners to all Save the Date cards
+    savedateCards.forEach(card => {
         card.addEventListener('click', function() {
             openModal(galleryModal);
         });
