@@ -70,7 +70,7 @@ body {
 
 .couple-names {
     font-size: 42px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -89,7 +89,7 @@ body {
 
 .wedding-date {
     font-size: 24px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -343,11 +343,11 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 42px;
     font-weight: 400;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
     margin: 0;
     white-space: nowrap;
     opacity: 0;
@@ -486,7 +486,7 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 28px;
     font-weight: 400;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -496,11 +496,11 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 48px;
     font-weight: 400;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
 }
 
 /* Location card with flower wrapper */
@@ -636,11 +636,11 @@ body {
 .open-envelope-content .card.registry-card .registry-click-text {
     font-family: 'Italianno', cursive;
     font-weight: 400;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(184, 134, 11, 0.3));
+    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
     margin: 0;
     text-align: center;
 }
@@ -786,7 +786,7 @@ body {
 
 .invite-initials {
     font-size: 48px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -800,7 +800,7 @@ body {
 
 .invite-text {
     font-size: 28px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -834,7 +834,7 @@ body {
 .click-text {
     margin-top: 20px;
     font-size: 24px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1151,7 +1151,7 @@ body {
     width: 100%;
     padding: 12px 20px;
     margin-top: 25px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     border: none;
     border-radius: 25px;
     cursor: pointer;
@@ -1159,13 +1159,13 @@ body {
     font-size: 16px;
     font-weight: 600;
     color: #fff;
-    box-shadow: 0 3px 10px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
     transition: all 0.3s ease;
 }
 
 .modal-back-btn:hover {
     transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
 .modal-back-btn:active {
@@ -1187,7 +1187,7 @@ body {
 .modal-content h2.modal-title-gold {
     font-family: 'Italianno', cursive;
     font-size: 48px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1315,7 +1315,7 @@ body {
 .gallery-info .invite-text-modal {
     font-size: 18px;
     font-style: italic;
-    color: #b8860b;
+    color: #764ba2;
     margin: 25px 0 15px;
     font-family: 'Cormorant Garamond', serif;
 }
@@ -1340,7 +1340,7 @@ body {
 .registry-modal-content .details-modal-title {
     font-family: 'Italianno', cursive;
     font-size: 48px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1406,7 +1406,7 @@ body {
 .event-section .event-title {
     font-family: 'Italianno', cursive;
     font-size: 28px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1439,7 +1439,7 @@ body {
 .faq-modal-title {
     font-family: 'Italianno', cursive;
     font-size: 42px;
-    background: linear-gradient(135deg, #b8860b 0%, #daa520 25%, #cd853f 50%, #daa520 75%, #b8860b 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -1457,7 +1457,7 @@ body {
     padding: 15px 20px;
     background: #faf9f7;
     border-radius: 10px;
-    border-left: 3px solid #daa520;
+    border-left: 3px solid #764ba2;
 }
 
 .faq-item h3 {

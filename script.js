@@ -374,26 +374,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // RSVP Form submission
     const rsvpForm = document.getElementById('rsvp-form');
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQWBrsabIW_fhBgqGWlI3Ky5-ub4a96n8B4ttIJol-nPjbGXNnqZ8w7Zze-CAnAyqtkA/exec';
+    
     if (rsvpForm) {
         rsvpForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form data
-            const formData = new FormData(this);
             const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const attendance = this.querySelector('select').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const attending = this.querySelector('select').value;
             const notes = this.querySelector('textarea').value;
             
-            // Here you would typically send this data to a server
-            // For now, we'll just show an alert
-            alert(`Thank you, ${name}! Your RSVP has been received. We'll send a confirmation to ${email}.`);
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
             
-            // Reset form
-            this.reset();
-            
-            // Close modal
-            closeModal(rsvpModal);
+            // Send data to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    phone: phone,
+                    attending: attending,
+                    notes: notes
+                })
+            })
+            .then(() => {
+                alert(`Thank you, ${name}! Your RSVP has been received.`);
+                // Reset form
+                rsvpForm.reset();
+                // Close modal
+                closeModal(rsvpModal);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('There was an error submitting your RSVP. Please try again.');
+            })
+            .finally(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
         });
     }
 
