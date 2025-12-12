@@ -456,7 +456,7 @@ body {
 /* Flower at top left of cards */
 .open-envelope-content .flower-top-left {
     position: absolute;
-    top: -118px;
+    top: -114px;
     left: 5px;
     width: 130px;
     height: auto;
