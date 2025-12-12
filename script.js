@@ -11,66 +11,30 @@ window.addEventListener('orientationchange', setViewportHeight);
 
 // Background Music - Global variable
 let backgroundMusic = null;
-let musicUnlocked = false;
+let musicStarted = false;
 
-// Initialize and try to play music immediately
+// Initialize background music
 function initBackgroundMusic() {
     backgroundMusic = document.getElementById('background-music');
     if (backgroundMusic) {
-        backgroundMusic.volume = 0.5; // Set volume to 50%
+        backgroundMusic.volume = 0.5;
         
-        // iOS Safari requires audio to be "unlocked" with user gesture
-        const unlockAudio = () => {
-            if (musicUnlocked) return;
-            
-            // Create a silent play to unlock iOS audio
-            backgroundMusic.muted = true;
-            const playPromise = backgroundMusic.play();
-            
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    backgroundMusic.pause();
-                    backgroundMusic.muted = false;
-                    backgroundMusic.currentTime = 0;
-                    musicUnlocked = true;
-                    // Now try to play for real
-                    backgroundMusic.play().catch(e => console.log('Play error:', e));
-                }).catch(e => {
-                    console.log('Unlock failed:', e);
-                });
-            }
-        };
-        
-        // Try to play immediately (works on Android/Desktop)
-        const playMusic = async () => {
-            try {
-                await backgroundMusic.play();
-                musicUnlocked = true;
-            } catch (e) {
-                console.log('Music autoplay blocked, will play on interaction');
-            }
-        };
-        
-        playMusic();
-        
-        // Listen for any user interaction to unlock and play on iOS
-        const interactionEvents = ['click', 'touchstart', 'touchend'];
-        const handleInteraction = () => {
-            if (!musicUnlocked) {
-                unlockAudio();
-            } else if (backgroundMusic.paused) {
-                backgroundMusic.play().catch(e => console.log('Play error:', e));
-            }
-            // Remove listeners after first successful interaction
-            if (musicUnlocked) {
-                interactionEvents.forEach(event => {
-                    document.removeEventListener(event, handleInteraction);
-                });
-            }
-        };
-        
-        interactionEvents.forEach(event => {
-            document.addEventListener(event, handleInteraction, { passive: true });
+        // Try autoplay (works on some browsers)
+        backgroundMusic.play().catch(() => {
+            console.log('Autoplay blocked - waiting for user interaction');
+        });
+    }
+}
+
+// Play music - call this directly from user touch/click
+function playBackgroundMusic() {
+    if (backgroundMusic && !musicStarted) {
+        backgroundMusic.currentTime = 0;
+        backgroundMusic.play().then(() => {
+            musicStarted = true;
+            console.log('Music started successfully');
+        }).catch(e => {
+            console.log('Music play failed:', e);
         });
     }
 }
@@ -141,12 +105,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Envelope click/touch handler
     function openEnvelope() {
-        // Try to play music on envelope click (first interaction)
-        if (backgroundMusic && backgroundMusic.paused) {
-            backgroundMusic.play().catch(e => {
-                console.log('Music play error:', e);
-            });
-        }
+        // Play music on envelope click (iOS requires direct user gesture)
+        playBackgroundMusic();
         
         // Hide names, date, closed envelope and click text
         if (coupleNames) coupleNames.style.opacity = '0';
