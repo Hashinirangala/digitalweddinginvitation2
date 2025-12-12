@@ -131,26 +131,11 @@ document.addEventListener('DOMContentLoaded', function() {
             envelopeClosed.style.display = 'none';
             envelopeOpened.classList.remove('hidden');
             
-            // Handle video - play once fully, then loop last 1.3 seconds
+            // Handle video - play once and stop
             const inviteVideo = document.getElementById('invite-video');
             if (inviteVideo) {
-                let hasPlayedOnce = false;
-                
-                // When video ends, mark as played once
-                inviteVideo.addEventListener('ended', function() {
-                    hasPlayedOnce = true;
-                    // Jump to last 1.3 seconds and play
-                    inviteVideo.currentTime = inviteVideo.duration - 1.3;
-                    inviteVideo.play();
-                });
-                
-                // After first full play, loop only last 1.3 seconds
-                inviteVideo.addEventListener('timeupdate', function() {
-                    if (hasPlayedOnce && inviteVideo.currentTime >= inviteVideo.duration - 0.1) {
-                        // Jump back to start of last 1.3 seconds
-                        inviteVideo.currentTime = inviteVideo.duration - 1.3;
-                    }
-                });
+                // Video plays once and stops (no loop)
+                inviteVideo.play();
             }
         }, 300);
     }
@@ -165,19 +150,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const backBtn = document.getElementById('back-btn');
     if (backBtn) {
         function goBackToEnvelope() {
-            // Hide open envelope
-            envelopeOpened.classList.add('hidden');
-            
             // Reset video
             const inviteVideo = document.getElementById('invite-video');
             if (inviteVideo) {
-                inviteVideo.currentTime = 0;
                 inviteVideo.pause();
+                inviteVideo.currentTime = 0;
             }
+            
+            // Reset ring animation
+            const ringImage = document.querySelector('.ring-image');
+            if (ringImage) {
+                ringImage.style.animation = 'none';
+                ringImage.style.opacity = '0';
+            }
+            
+            // Reset back button animation
+            if (backBtn) {
+                backBtn.style.animation = 'none';
+                backBtn.style.opacity = '0';
+            }
+            
+            // Reset cards column animations
+            const leftColumn = document.querySelector('.left-column');
+            const rightColumn = document.querySelector('.right-column');
+            if (leftColumn) {
+                leftColumn.style.animation = 'none';
+            }
+            if (rightColumn) {
+                rightColumn.style.animation = 'none';
+            }
+            
+            // Reset flower animation
+            const flower = document.querySelector('.flower-above-card');
+            if (flower) {
+                flower.style.animation = 'none';
+                flower.style.opacity = '0';
+            }
+            
+            // Hide open envelope
+            envelopeOpened.classList.add('hidden');
             
             // Show envelope elements again
             envelopeClosed.style.display = '';
             envelopeClosed.style.opacity = '1';
+            envelopeClosed.style.transform = '';
+            
             if (coupleNames) {
                 coupleNames.style.display = '';
                 coupleNames.style.opacity = '1';
@@ -190,11 +207,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 clickText.style.display = '';
                 clickText.style.opacity = '1';
             }
+            
+            // Reset body scroll
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
         }
         
-        backBtn.addEventListener('click', goBackToEnvelope);
+        backBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            goBackToEnvelope();
+        });
         backBtn.addEventListener('touchend', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             goBackToEnvelope();
         });
     }
