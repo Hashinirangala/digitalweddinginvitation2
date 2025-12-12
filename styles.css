@@ -1369,6 +1369,15 @@ body {
     background-clip: text;
 }
 
+.rsvp-deadline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #764ba2;
+    text-align: center;
+    margin: -15px 0 20px 0;
+    font-style: italic;
+}
+
 /* RSVP Form */
 #rsvp-form {
     display: flex;
