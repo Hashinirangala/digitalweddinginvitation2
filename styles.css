@@ -753,16 +753,16 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 36px;
     color: #333;
-    margin: 0 0 5px 0;
+    margin: 0 0 2px 0;
 }
 
 .open-envelope-content .card.savedate-card .save-day {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
+    font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #333;
-    margin: 0 0 10px 0;
+    margin: 0 0 3px 0;
 }
 
 .open-envelope-content .card.savedate-card .save-date-row {
@@ -770,7 +770,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin: 10px 0;
+    margin: 3px 0;
 }
 
 .open-envelope-content .card.savedate-card .date-item {
@@ -789,11 +789,20 @@ body {
     line-height: 1;
 }
 
+.open-envelope-content .card.savedate-card .save-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+    margin: 5px 0 3px 0;
+}
+
 .open-envelope-content .card.savedate-card .save-venue {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 12px;
+    font-size: 11px;
     color: #666;
-    margin: 10px 0 0 0;
+    margin: 0;
 }
 
 .open-envelope-content .card.registry-card {
