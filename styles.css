@@ -742,18 +742,19 @@ body {
 
 .open-envelope-content .card.savedate-card {
     background: rgba(255, 255, 255, 1);
-    padding: 15px;
+    padding: 10px 15px;
     overflow: hidden;
     border-top: 10px solid #764ba2;
     border-bottom: 10px solid #764ba2;
     text-align: center;
+    
 }
 
 .open-envelope-content .card.savedate-card .save-word {
     font-family: 'Italianno', cursive;
-    font-size: 36px;
+    font-size: 32px;
     color: #333;
-    margin: 0 0 2px 0;
+    margin: 0 0 1px 0;
 }
 
 .open-envelope-content .card.savedate-card .save-day {
@@ -795,7 +796,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: #333;
-    margin: 5px 0 3px 0;
+    margin: 5px 0 10px 0;
 }
 
 .open-envelope-content .card.savedate-card .save-venue {
