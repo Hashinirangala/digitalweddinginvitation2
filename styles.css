@@ -336,7 +336,7 @@ body {
 /* You are invited text above ring */
 .open-envelope-content .you-are-invited {
     position: absolute;
-    bottom: 72%;
+    bottom: 78%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
@@ -355,7 +355,7 @@ body {
 
 .open-envelope-content .ring-image {
     position: absolute;
-    bottom: 80%;
+    bottom: 85%;
     left: 50%;
     transform: translateX(-50%);
     width: 100px;
@@ -1670,13 +1670,13 @@ body {
     }
 
     .open-envelope-content .you-are-invited {
-        bottom: 83%;
+        bottom: 77%;
         font-size: 34px;
     }
     
     .open-envelope-content .ring-image {
-        bottom: 80%;
-        width: 120px;
+        bottom: 83%;
+        width: 100px;
     }
 
     .couple-names {
@@ -1977,13 +1977,13 @@ body {
     }
 
     .open-envelope-content .you-are-invited {
-        bottom: 90%;
+        bottom: 77%;
         font-size: 28px;
     }
     
     .open-envelope-content .ring-image {
-        bottom: 80%;
-        width: 100px;
+        bottom: 83%;
+        width: 80px;
     }
 
     .couple-names {
