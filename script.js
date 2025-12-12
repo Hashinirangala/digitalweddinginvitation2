@@ -91,13 +91,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsCards = document.querySelectorAll('#details-card');
     const galleryCards = document.querySelectorAll('#gallery-card');
     const savedateCards = document.querySelectorAll('#savedate-card');
+    const registryCards = document.querySelectorAll('#registry-card');
     
     // Modal elements
     const rsvpModal = document.getElementById('rsvp-modal');
     const locationModal = document.getElementById('location-modal');
     const detailsModal = document.getElementById('details-modal');
     const galleryModal = document.getElementById('gallery-modal');
+    const registryModal = document.getElementById('registry-modal');
     const closeButtons = document.querySelectorAll('.close-btn');
+    const backButtons = document.querySelectorAll('.modal-back-btn');
     
     // Debug: Check if elements are found
     console.log('RSVP Cards found:', rsvpCards.length);
@@ -326,8 +329,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Add event listeners to all Registry cards (Click for DETAILS)
+    registryCards.forEach(card => {
+        card.addEventListener('click', function() {
+            openModal(registryModal);
+        });
+        
+        card.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            openModal(registryModal);
+        });
+    });
+
     // Close modal handlers
     closeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const modal = this.closest('.modal');
+            closeModal(modal);
+        });
+        
+        button.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            const modal = this.closest('.modal');
+            closeModal(modal);
+        });
+    });
+    
+    // Back button handlers
+    backButtons.forEach(button => {
         button.addEventListener('click', function() {
             const modal = this.closest('.modal');
             closeModal(modal);

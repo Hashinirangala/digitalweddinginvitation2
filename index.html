@@ -63,8 +63,9 @@
                         </div>
 
                         <div class="location-with-flower">
-                            <img src="flower1.png" alt="Flower" class="flower-above-card">
-                            <div class="card location-card" id="location-card">
+                            <img src="flower1.png" alt="Flower" class="flower-above-card flower1">
+                            <img src="flower2.png" alt="Flower" class="flower-above-card flower2">
+                            <div class="card location-card">
                                 <img src="couple.jpg" alt="Couple Photo" class="gallery-card-image">
                             </div>
                         </div>
@@ -116,11 +117,10 @@
     <!-- Modal Overlays (Outside invitation-content so they're always accessible) -->
     <div id="rsvp-modal" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
             <h2>RSVP</h2>
             <form id="rsvp-form">
                 <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
+                <input type="tel" placeholder="Your Phone Number" required>
                 <select required>
                     <option value="">Will you attend?</option>
                     <option value="yes">Yes, I'll be there!</option>
@@ -129,12 +129,12 @@
                 <textarea placeholder="Additional Notes (Optional)"></textarea>
                 <button type="submit">Submit RSVP</button>
             </form>
+            <button class="modal-back-btn"><span>←</span> Back</button>
         </div>
     </div>
 
     <div id="location-modal" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
             <h2>Location</h2>
             <div class="location-info">
                 <p><strong>Venue Name:</strong> <span id="venue-name">Your Venue Name</span></p>
@@ -154,12 +154,12 @@
                 </div>
                 <a href="#" id="directions-link" target="_blank" class="directions-btn">Get Directions</a>
             </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
         </div>
     </div>
 
     <div id="details-modal" class="modal hidden">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
             <h2>Wedding Details</h2>
             <div class="details-info">
                 <div class="detail-item">
@@ -183,12 +183,12 @@
                     <p>Phone: (555) 123-4567</p>
                 </div>
             </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
         </div>
     </div>
 
     <div id="gallery-modal" class="modal hidden">
         <div class="modal-content gallery-modal-content">
-            <span class="close-btn">&times;</span>
             <div class="gallery-info">
                 <div class="parents-section">
                     <p class="parents-label">Parents of Bride</p>
@@ -199,6 +199,28 @@
                     <p class="invite-text-modal">We invite you to join us on this very special day</p>
                 </div>
             </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
+        </div>
+    </div>
+
+    <div id="registry-modal" class="modal hidden">
+        <div class="modal-content registry-modal-content">
+            <h2 class="details-modal-title">Ceremony & Reception Areas</h2>
+            <div class="event-details-container">
+                <div class="event-section">
+                    <img src="ceremony.jpg" alt="Ceremony" class="event-image">
+                    <h3 class="event-title">Ceremony</h3>
+                    <p class="event-time">4:00 PM</p>
+                    <p class="event-location">Your Ceremony Venue</p>
+                </div>
+                <div class="event-section">
+                    <img src="reception.jpg" alt="Reception" class="event-image">
+                    <h3 class="event-title">Reception</h3>
+                    <p class="event-time">6:00 PM</p>
+                    <p class="event-location">Your Reception Venue</p>
+                </div>
+            </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
         </div>
     </div>
 
