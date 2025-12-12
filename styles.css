@@ -69,7 +69,7 @@ body {
 }
 
 .couple-names {
-    font-size: 42px;
+    font-size: 52px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -93,7 +93,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 3px;
     margin-bottom: 30px;
     font-family: 'Italianno', cursive;
@@ -336,18 +336,15 @@ body {
 /* You are invited text above ring */
 .open-envelope-content .you-are-invited {
     position: absolute;
-    bottom: 85%;
+    bottom: 72%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 20;
     font-family: 'Italianno', cursive;
     font-size: 42px;
     font-weight: 400;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     margin: 0;
     white-space: nowrap;
     opacity: 0;
@@ -358,12 +355,12 @@ body {
 
 .open-envelope-content .ring-image {
     position: absolute;
-    bottom: 75%;
+    bottom: 80%;
     left: 50%;
     transform: translateX(-50%);
-    width: 150px;
+    width: 100px;
     height: auto;
-    z-index: 20;
+    z-index: 25;
     opacity: 0;
     animation: fadeInRing 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     animation-delay: 2.9s;
@@ -378,6 +375,81 @@ body {
     100% {
         opacity: 1;
         transform: translateX(-50%) scale(1) rotate(0deg);
+    }
+}
+
+/* Purple Envelope above cards */
+.open-envelope-content .purple-envelope {
+    position: absolute;
+    bottom: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    height: 80px;
+    z-index: 14;
+    opacity: 0;
+    animation: fadeInEnvelope 1s ease forwards;
+    animation-delay: 2.9s;
+}
+
+.open-envelope-content .purple-envelope::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #9b59b6 100%);
+    border-radius: 5px 5px 0 0;
+}
+
+.open-envelope-content .purple-envelope .envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 175px solid transparent;
+    border-right: 175px solid transparent;
+    border-bottom: 40px solid #764ba2;
+}
+
+@keyframes fadeInEnvelope {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Purple Envelope above cards */
+.open-envelope-content .purple-envelope {
+    position: absolute;
+    bottom: 58%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 380px;
+    height: auto;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeInEnvelope 1s ease forwards;
+    animation-delay: 2.9s;
+}
+
+@keyframes fadeInEnvelope {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
     }
 }
 
@@ -473,6 +545,7 @@ body {
     color: #1f2937;
     justify-content: center;
     align-items: center;
+    border-left: 10px solid #764ba2;
 }
 
 .open-envelope-content .card.rsvp-card .rsvp-content {
@@ -486,21 +559,26 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 28px;
     font-weight: 400;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #333;
 }
 
 .open-envelope-content .card.rsvp-card .rsvp-title {
     font-family: 'Italianno', cursive;
     font-size: 48px;
     font-weight: 400;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+    color: #333;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-here {
+    font-family: 'Italianno', cursive;
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+    text-align: right;
+    width: 100%;
+    padding-right: 15px;
 }
 
 /* Location card with flower wrapper */
@@ -557,9 +635,42 @@ body {
 .open-envelope-content .card.details-card {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
-    padding: 0;
+    padding: 20px;
     overflow: hidden;
-    line-height: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #9b59b6 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+    overflow: visible;
+}
+
+.faq-circle-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+    margin: 0;
+    color: white;
+    padding: 10px;
+}
+
+.faq-circle-text span {
+    font-family: 'Italianno', cursive;
+    font-size: 38px;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+    color: white;
 }
 
 .open-envelope-content .card.details-card .faq-card-image {
@@ -615,32 +726,72 @@ body {
 }
 
 .open-envelope-content .card.savedate-card {
-    background: transparent;
-    padding: 0;
+    background: rgba(255, 255, 255, 1);
+    padding: 15px;
     overflow: hidden;
+    border-top: 10px solid #764ba2;
+    border-bottom: 10px solid #764ba2;
+    text-align: center;
 }
 
-.open-envelope-content .card.savedate-card .full-card-image {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
+.open-envelope-content .card.savedate-card .save-word {
+    font-family: 'Italianno', cursive;
+    font-size: 36px;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.open-envelope-content .card.savedate-card .save-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.open-envelope-content .card.savedate-card .save-date-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.open-envelope-content .card.savedate-card .date-item {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #333;
+    padding: 5px 0;
+    border-top: 2px solid #764ba2;
+    border-bottom: 2px solid #764ba2;
+}
+
+.open-envelope-content .card.savedate-card .date-number {
+    font-family: 'Italianno', cursive;
+    font-size: 42px;
+    color: #333;
+    line-height: 1;
+}
+
+.open-envelope-content .card.savedate-card .save-venue {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12px;
+    color: #666;
+    margin: 10px 0 0 0;
 }
 
 .open-envelope-content .card.registry-card {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
     justify-content: center;
+    border-right: 10px solid #764ba2;
 }
 
 .open-envelope-content .card.registry-card .registry-click-text {
     font-family: 'Italianno', cursive;
     font-weight: 400;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #9b59b6 50%, #764ba2 75%, #667eea 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+    color: #333;
     margin: 0;
     text-align: center;
 }
@@ -651,6 +802,8 @@ body {
 
 .open-envelope-content .card.registry-card .details-word {
     font-size: 24px;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .open-envelope-content .card.image-card {
@@ -1013,7 +1166,6 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    margin-bottom: 40px;
 }
 
 .card {
