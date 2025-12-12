@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio id="background-music" loop autoplay>
+    <audio id="background-music" loop autoplay playsinline webkit-playsinline>
         <source src="background-music.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
@@ -52,6 +52,9 @@
                     
                     <!-- Clickable Cards Section - Overlay on video -->
                     <div class="cards-container">
+                        <!-- Flower at top left of cards -->
+                        <img src="flower3.png" alt="Flower" class="flower-top-left">
+                        
                         <!-- Left Column - slides in from left -->
                         <div class="cards-column left-column">
                         <div class="card gallery-card" id="gallery-card">
@@ -176,7 +179,7 @@
             <div class="faq-info">
                 <div class="faq-item">
                     <h3>What is the dress code?</h3>
-                    <p>Wear anything you like! Just come as you are and celebrate with us.</p>
+                    <p>Come in your festive best and celebrate with us.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Is there parking available?</h3>

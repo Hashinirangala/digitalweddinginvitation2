@@ -453,6 +453,20 @@ body {
     }
 }
 
+/* Flower at top left of cards */
+.open-envelope-content .flower-top-left {
+    position: absolute;
+    top: -118px;
+    left: 5px;
+    width: 130px;
+    height: auto;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeInFlower 1s ease forwards;
+    animation-delay: 3.2s;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
 /* Cards overlay on top of video, animating from below */
 .open-envelope-content .cards-container {
     position: absolute;
@@ -469,6 +483,7 @@ body {
     background: transparent;
     border-radius: 0 0 10px 10px;
     max-height: 75%;
+    overflow: visible;
 }
 
 .open-envelope-content .cards-column {
@@ -660,7 +675,7 @@ body {
     text-align: center;
     line-height: 1.4;
     margin: 0;
-    color: white;
+    color: #ffffff !important;
     padding: 10px;
 }
 
@@ -1739,9 +1754,8 @@ body {
         pointer-events: auto;
         background: transparent;
         border-radius: 0;
-        max-height: 75%;
-        overflow-y: auto;
-        overflow-x: hidden;
+        max-height: 82%;
+        overflow: visible;
         -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
         overscroll-behavior: contain;
@@ -2049,11 +2063,7 @@ body {
         background: transparent;
         border-radius: 0;
         max-height: 75%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        touch-action: pan-y;
-        overscroll-behavior: contain;
+        overflow: visible;
     }
 
     .open-envelope-content .cards-column {

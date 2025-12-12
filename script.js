@@ -11,6 +11,7 @@ window.addEventListener('orientationchange', setViewportHeight);
 
 // Background Music - Global variable
 let backgroundMusic = null;
+let musicUnlocked = false;
 
 // Initialize and try to play music immediately
 function initBackgroundMusic() {
@@ -18,31 +19,59 @@ function initBackgroundMusic() {
     if (backgroundMusic) {
         backgroundMusic.volume = 0.5; // Set volume to 50%
         
-        // Try to play immediately
+        // iOS Safari requires audio to be "unlocked" with user gesture
+        const unlockAudio = () => {
+            if (musicUnlocked) return;
+            
+            // Create a silent play to unlock iOS audio
+            backgroundMusic.muted = true;
+            const playPromise = backgroundMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    backgroundMusic.pause();
+                    backgroundMusic.muted = false;
+                    backgroundMusic.currentTime = 0;
+                    musicUnlocked = true;
+                    // Now try to play for real
+                    backgroundMusic.play().catch(e => console.log('Play error:', e));
+                }).catch(e => {
+                    console.log('Unlock failed:', e);
+                });
+            }
+        };
+        
+        // Try to play immediately (works on Android/Desktop)
         const playMusic = async () => {
             try {
                 await backgroundMusic.play();
+                musicUnlocked = true;
             } catch (e) {
-                // Autoplay blocked - will play on first interaction
                 console.log('Music autoplay blocked, will play on interaction');
             }
         };
         
-        // Try multiple times to play
         playMusic();
         
-        // Try on window load
-        window.addEventListener('load', playMusic);
-        
-        // Try on any user interaction
-        const playOnInteraction = () => {
-            playMusic();
-            document.removeEventListener('click', playOnInteraction);
-            document.removeEventListener('touchstart', playOnInteraction);
+        // Listen for any user interaction to unlock and play on iOS
+        const interactionEvents = ['click', 'touchstart', 'touchend'];
+        const handleInteraction = () => {
+            if (!musicUnlocked) {
+                unlockAudio();
+            } else if (backgroundMusic.paused) {
+                backgroundMusic.play().catch(e => console.log('Play error:', e));
+            }
+            // Remove listeners after first successful interaction
+            if (musicUnlocked) {
+                interactionEvents.forEach(event => {
+                    document.removeEventListener(event, handleInteraction);
+                });
+            }
         };
         
-        document.addEventListener('click', playOnInteraction, { once: true });
-        document.addEventListener('touchstart', playOnInteraction, { once: true });
+        interactionEvents.forEach(event => {
+            document.addEventListener(event, handleInteraction, { passive: true });
+        });
     }
 }
 
