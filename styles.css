@@ -2337,3 +2337,142 @@ body {
     }
 }
 
+/* Ivory + white theme overrides */
+:root {
+    --theme-ivory-light: #fffdf8;
+    --theme-ivory: #f4ecdd;
+    --theme-ivory-deep: #e8dcc5;
+    --theme-accent: #b89b67;
+    --theme-accent-strong: #9f814f;
+}
+
+.couple-names,
+.wedding-date,
+.invite-initials,
+.invite-text,
+.click-text,
+.modal-content h2.modal-title-gold,
+.registry-modal-content .details-modal-title,
+.event-section .event-title,
+.faq-modal-title {
+    background: linear-gradient(
+        135deg,
+        var(--theme-ivory-light) 0%,
+        var(--theme-ivory) 45%,
+        var(--theme-ivory-deep) 100%
+    ) !important;
+}
+
+.couple-names,
+.wedding-date,
+.click-text {
+    background: none !important;
+    color: #8a6a3d !important;
+    -webkit-text-fill-color: #8a6a3d !important;
+    text-shadow: 0 0 10px rgba(138, 106, 61, 0.25) !important;
+}
+
+.open-envelope-content .purple-envelope {
+    filter: saturate(0.22) sepia(0.42) brightness(1.1);
+}
+
+.open-envelope-content .purple-envelope::before {
+    background: linear-gradient(
+        135deg,
+        var(--theme-ivory-light) 0%,
+        var(--theme-ivory) 55%,
+        var(--theme-ivory-deep) 100%
+    ) !important;
+}
+
+.open-envelope-content .purple-envelope .envelope-flap {
+    border-bottom-color: var(--theme-ivory-deep) !important;
+}
+
+.open-envelope-content .card.rsvp-card {
+    border-left-color: var(--theme-accent) !important;
+}
+
+.open-envelope-content .card.savedate-card {
+    border-top-color: var(--theme-accent) !important;
+    border-bottom-color: var(--theme-accent) !important;
+}
+
+.open-envelope-content .card.savedate-card .date-item {
+    border-top-color: var(--theme-accent) !important;
+    border-bottom-color: var(--theme-accent) !important;
+}
+
+.open-envelope-content .card.registry-card {
+    border-right-color: var(--theme-accent) !important;
+}
+
+.faq-circle {
+    background: linear-gradient(
+        135deg,
+        var(--theme-ivory-light) 0%,
+        var(--theme-ivory) 50%,
+        var(--theme-ivory-deep) 100%
+    ) !important;
+    box-shadow: 0 5px 20px rgba(184, 155, 103, 0.35) !important;
+}
+
+.faq-circle-text {
+    color: #6e5531 !important;
+}
+
+.faq-circle-text span {
+    color: #5a4427 !important;
+}
+
+.modal-back-btn,
+#rsvp-form button,
+.directions-btn {
+    background: linear-gradient(
+        135deg,
+        var(--theme-ivory-light) 0%,
+        var(--theme-ivory) 55%,
+        var(--theme-ivory-deep) 100%
+    ) !important;
+    color: #5f4a2b !important;
+    box-shadow: 0 3px 10px rgba(184, 155, 103, 0.32) !important;
+}
+
+.modal-back-btn:hover,
+#rsvp-form button:hover,
+.directions-btn:hover {
+    box-shadow: 0 5px 15px rgba(184, 155, 103, 0.45) !important;
+}
+
+.rsvp-deadline,
+.gallery-info .invite-text-modal,
+.venue-location .map-link,
+.location-info strong,
+.detail-item h3 {
+    color: var(--theme-accent-strong) !important;
+}
+
+.venue-location .map-link {
+    border-color: var(--theme-accent) !important;
+}
+
+.venue-location .map-link:hover {
+    background: var(--theme-ivory) !important;
+    color: #4f3d24 !important;
+}
+
+#rsvp-form input:focus,
+#rsvp-form select:focus,
+#rsvp-form textarea:focus {
+    border-color: var(--theme-accent) !important;
+}
+
+.faq-item {
+    border-left-color: var(--theme-accent) !important;
+}
+
+.detail-item {
+    border-left-color: var(--theme-accent) !important;
+    background: #faf8f3 !important;
+}
+
