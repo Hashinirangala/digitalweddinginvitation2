@@ -343,8 +343,8 @@ body {
     font-family: 'Italianno', cursive;
     font-size: 42px;
     font-weight: 400;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: var(--theme-accent);
+    text-shadow: 0 0 10px rgba(184, 155, 103, 0.45), 0 2px 4px rgba(0, 0, 0, 0.25);
     margin: 0;
     white-space: nowrap;
     opacity: 0;
@@ -2482,9 +2482,17 @@ body {
     align-items: stretch !important;
     gap: 12px !important;
     padding: 16px 10px calc(20px + env(safe-area-inset-bottom)) !important;
+    z-index: auto !important;
     max-height: 72% !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
+}
+
+.open-envelope-content .flower-top-left {
+    top: max(12px, calc(28% - 114px)) !important;
+    left: 5px !important;
+    z-index: 40 !important;
+    pointer-events: none;
 }
 
 .open-envelope-content .cards-container .card,
@@ -2493,12 +2501,9 @@ body {
 }
 
 .open-envelope-content .cards-container .card {
-    min-height: 140px !important;
-}
-
-.open-envelope-content .cards-container .gallery-card,
-.open-envelope-content .cards-container .location-card {
-    min-height: 170px !important;
+    height: 40vh !important;
+    height: calc(var(--vh, 1vh) * 40) !important;
+    min-height: calc(var(--vh, 1vh) * 40) !important;
 }
 
 /* Top-down card reveal (after music starts) */
