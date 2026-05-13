@@ -30,13 +30,15 @@ function initBackgroundMusic() {
 function playBackgroundMusic() {
     if (backgroundMusic && !musicStarted) {
         backgroundMusic.currentTime = 0;
-        backgroundMusic.play().then(() => {
+        return backgroundMusic.play().then(() => {
             musicStarted = true;
             console.log('Music started successfully');
         }).catch(e => {
             console.log('Music play failed:', e);
         });
     }
+
+    return Promise.resolve();
 }
 
 // Initialize music as soon as possible
@@ -85,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryCards = document.querySelectorAll('#gallery-card');
     const savedateCards = document.querySelectorAll('#savedate-card');
     const registryCards = document.querySelectorAll('#registry-card');
+    const openEnvelopeCards = document.querySelectorAll('.open-envelope-content .card');
     
     // Modal elements
     const rsvpModal = document.getElementById('rsvp-modal');
@@ -102,11 +105,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get name and date elements
     const coupleNames = document.querySelector('.couple-names');
     const weddingDate = document.querySelector('.wedding-date');
+    let cardRevealTimeoutId = null;
+
+    function resetCardReveal() {
+        openEnvelopeCards.forEach(card => {
+            card.classList.remove('card-in-view');
+            card.style.transitionDelay = '0ms';
+        });
+    }
+
+    function revealCardsFromTop() {
+        if (!openEnvelopeCards.length) {
+            return;
+        }
+
+        openEnvelopeCards.forEach((card, index) => {
+            card.style.transitionDelay = `${Math.min(index * 120, 600)}ms`;
+        });
+
+        requestAnimationFrame(() => {
+            openEnvelopeCards.forEach(card => {
+                card.classList.add('card-in-view');
+            });
+        });
+    }
     
+    const MUSIC_START_DELAY_MS = 1200;
+    const CARD_REVEAL_AFTER_MUSIC_MS = 1800;
+
     // Envelope click/touch handler
     function openEnvelope() {
-        // Play music on envelope click (iOS requires direct user gesture)
-        playBackgroundMusic();
+        // Play music shortly after opening interaction.
+        setTimeout(() => {
+            playBackgroundMusic();
+        }, MUSIC_START_DELAY_MS);
         
         // Hide names, date, closed envelope and click text
         if (coupleNames) coupleNames.style.opacity = '0';
@@ -122,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show open envelope
             envelopeClosed.style.display = 'none';
             envelopeOpened.classList.remove('hidden');
+            resetCardReveal();
             
             // Handle video - play once and stop
             const inviteVideo = document.getElementById('invite-video');
@@ -129,6 +162,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Video plays once and stops (no loop)
                 inviteVideo.play();
             }
+
+            // Let the MP3 play a bit, then reveal cards from top.
+            const revealDelay = Math.max(0, MUSIC_START_DELAY_MS + CARD_REVEAL_AFTER_MUSIC_MS - 300);
+            cardRevealTimeoutId = setTimeout(() => {
+                revealCardsFromTop();
+            }, revealDelay);
         }, 300);
     }
     
@@ -171,6 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
             if (rightColumn) {
                 rightColumn.style.animation = 'none';
             }
+
+            if (cardRevealTimeoutId) {
+                clearTimeout(cardRevealTimeoutId);
+                cardRevealTimeoutId = null;
+            }
+
+            resetCardReveal();
             
             // Reset flower animation
             const flower = document.querySelector('.flower-above-card');

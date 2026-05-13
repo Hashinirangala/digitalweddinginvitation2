@@ -2476,3 +2476,55 @@ body {
     background: #faf8f3 !important;
 }
 
+/* Stack open-envelope cards vertically in a single sequence */
+.open-envelope-content .cards-container {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    padding: 16px 10px calc(20px + env(safe-area-inset-bottom)) !important;
+    max-height: 72% !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+.open-envelope-content .cards-container .card,
+.open-envelope-content .cards-container .location-with-flower {
+    width: 100% !important;
+}
+
+.open-envelope-content .cards-container .card {
+    min-height: 140px !important;
+}
+
+.open-envelope-content .cards-container .gallery-card,
+.open-envelope-content .cards-container .location-card {
+    min-height: 170px !important;
+}
+
+/* Top-down card reveal (after music starts) */
+.open-envelope-content .left-column .card,
+.open-envelope-content .right-column .card {
+    animation: none !important;
+}
+
+.open-envelope-content .left-column .card:nth-child(1),
+.open-envelope-content .left-column .card:nth-child(2),
+.open-envelope-content .left-column .card:nth-child(3),
+.open-envelope-content .right-column .card:nth-child(1),
+.open-envelope-content .right-column .card:nth-child(2),
+.open-envelope-content .right-column .card:nth-child(3) {
+    animation-delay: 0s !important;
+}
+
+.open-envelope-content .card {
+    opacity: 0 !important;
+    transform: translateY(-34px) scale(0.96);
+    transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+}
+
+.open-envelope-content .card.card-in-view {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1);
+}
+
