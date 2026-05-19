@@ -840,7 +840,7 @@ body {
 .open-envelope-content .card.registry-card {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
-    justify-content: center;
+    justify-content: stretch;
     gap: 8px;
     padding: 12px;
 }
@@ -864,7 +864,12 @@ body {
 }
 
 .open-envelope-content .card.registry-card .card-venue-location {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 8px;
 }
@@ -880,6 +885,15 @@ body {
 
 .open-envelope-content .card.registry-card .venue-name {
     font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.open-envelope-content .card.registry-card .card-map {
+    width: 100%;
+    flex: 1;
+    min-height: 120px;
+    border: 0;
+    border-radius: 8px;
     margin-bottom: 8px;
 }
 
