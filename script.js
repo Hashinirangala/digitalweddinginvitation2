@@ -65,6 +65,10 @@ document.addEventListener('touchstart', function(e) {
 }, { passive: true });
 
 document.addEventListener('touchmove', function(e) {
+    if (e.target.closest('.open-envelope-content .cards-container')) {
+        return;
+    }
+
     if (window.scrollY === 0 && e.touches[0].clientY > touchStartY) {
         e.preventDefault();
     }
