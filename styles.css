@@ -2495,6 +2495,20 @@ body {
     pointer-events: none;
 }
 
+.open-envelope-content .flower-above-card {
+    right: 0 !important;
+    z-index: 40 !important;
+    pointer-events: none;
+}
+
+.open-envelope-content .flower-above-card.flower1 {
+    top: 58% !important;
+}
+
+.open-envelope-content .flower-above-card.flower2 {
+    top: calc(58% + 70px) !important;
+}
+
 .open-envelope-content .cards-container .card,
 .open-envelope-content .cards-container .location-with-flower {
     width: 100% !important;
