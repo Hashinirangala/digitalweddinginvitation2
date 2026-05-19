@@ -603,7 +603,8 @@ body {
 }
 
 .open-envelope-content .card.rsvp-card .rsvp-card-form input,
-.open-envelope-content .card.rsvp-card .rsvp-card-form select {
+.open-envelope-content .card.rsvp-card .rsvp-card-form select,
+.open-envelope-content .card.rsvp-card .rsvp-card-form textarea {
     width: 100%;
     padding: 8px 10px;
     border: 1px solid #d8d8d8;
@@ -615,9 +616,15 @@ body {
 }
 
 .open-envelope-content .card.rsvp-card .rsvp-card-form input:focus,
-.open-envelope-content .card.rsvp-card .rsvp-card-form select:focus {
+.open-envelope-content .card.rsvp-card .rsvp-card-form select:focus,
+.open-envelope-content .card.rsvp-card .rsvp-card-form textarea:focus {
     outline: none;
     border-color: #b89b67;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-card-form textarea {
+    min-height: 52px;
+    resize: vertical;
 }
 
 .open-envelope-content .card.rsvp-card .rsvp-card-form button {
