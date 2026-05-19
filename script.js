@@ -80,13 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const invitationContent = document.getElementById('invitation-content');
     const clickText = document.getElementById('click-text');
     
-    // Card elements - use querySelectorAll to get cards from both envelope and invitation content
-    const rsvpCards = document.querySelectorAll('#rsvp-card');
-    const locationCards = document.querySelectorAll('#location-card');
-    const detailsCards = document.querySelectorAll('#details-card');
-    const galleryCards = document.querySelectorAll('#gallery-card');
-    const savedateCards = document.querySelectorAll('#savedate-card');
-    const registryCards = document.querySelectorAll('#registry-card');
+    // Cards are static content; only the inline RSVP form is interactive.
     const openEnvelopeCards = document.querySelectorAll('.open-envelope-content .card');
     
     // Modal elements
@@ -97,10 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const registryModal = document.getElementById('registry-modal');
     const closeButtons = document.querySelectorAll('.close-btn');
     const backButtons = document.querySelectorAll('.modal-back-btn');
-    
-    // Debug: Check if elements are found
-    console.log('RSVP Cards found:', rsvpCards.length);
-    console.log('RSVP Modal found:', rsvpModal ? 'Yes' : 'No');
     
     // Get name and date elements
     const coupleNames = document.querySelector('.couple-names');
@@ -293,76 +283,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo(0, scrollPosition);
     }
     
-    // Add event listeners to all RSVP cards
-    rsvpCards.forEach(card => {
-        card.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (rsvpModal) {
-                openModal(rsvpModal);
-            } else {
-                console.error('RSVP modal not found');
-            }
-        });
-        
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (rsvpModal) {
-                openModal(rsvpModal);
-            } else {
-                console.error('RSVP modal not found');
-            }
-        });
-    });
-
-    // Add event listeners to all Location cards
-    locationCards.forEach(card => {
-        card.addEventListener('click', function() {
-            openModal(locationModal);
-        });
-        
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            openModal(locationModal);
-        });
-    });
-
-    // Add event listeners to all Details cards
-    detailsCards.forEach(card => {
-        card.addEventListener('click', function() {
-            openModal(detailsModal);
-        });
-        
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            openModal(detailsModal);
-        });
-    });
-
-    // Add event listeners to all Save the Date cards
-    savedateCards.forEach(card => {
-        card.addEventListener('click', function() {
-            openModal(galleryModal);
-        });
-        
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            openModal(galleryModal);
-        });
-    });
-
-    // Add event listeners to all Registry cards (Click for DETAILS)
-    registryCards.forEach(card => {
-        card.addEventListener('click', function() {
-            openModal(registryModal);
-        });
-        
-        card.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            openModal(registryModal);
-        });
-    });
-
     // Close modal handlers
     closeButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -392,7 +312,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close modal when clicking/touching outside
-    [rsvpModal, locationModal, detailsModal, galleryModal].forEach(modal => {
+    [rsvpModal, locationModal, detailsModal, galleryModal, registryModal].filter(Boolean).forEach(modal => {
         modal.addEventListener('click', function(e) {
             if (e.target === modal) {
                 closeModal(modal);
@@ -417,9 +337,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Get form data
             const name = this.querySelector('input[type="text"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
+            const phoneInput = this.querySelector('input[type="tel"]');
+            const notesInput = this.querySelector('textarea');
+            const phone = phoneInput ? phoneInput.value : '';
             const attending = this.querySelector('select').value;
-            const notes = this.querySelector('textarea').value;
+            const notes = notesInput ? notesInput.value : '';
             
             // Show loading state
             const submitBtn = this.querySelector('button[type="submit"]');
@@ -445,8 +367,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert(`Thank you, ${name}! Your RSVP has been received.`);
                 // Reset form
                 rsvpForm.reset();
-                // Close modal
-                closeModal(rsvpModal);
+                if (rsvpModal) {
+                    closeModal(rsvpModal);
+                }
             })
             .catch((error) => {
                 console.error('Error:', error);

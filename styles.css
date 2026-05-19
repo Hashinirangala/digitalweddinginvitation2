@@ -506,7 +506,7 @@ body {
     align-items: center;
     text-align: center;
     width: 100%;
-    cursor: pointer;
+    cursor: default;
     pointer-events: auto;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -525,7 +525,7 @@ body {
 }
 
 .open-envelope-content .card:active {
-    transform: scale(0.95);
+    transform: none;
 }
 
 /* Staggered animation delays for left column cards */
@@ -567,6 +567,7 @@ body {
     align-items: baseline;
     justify-content: center;
     gap: 8px;
+    margin-bottom: 10px;
 }
 
 .open-envelope-content .card.rsvp-card .kindly-text {
@@ -592,6 +593,42 @@ body {
     margin: 0;
     text-align: center;
     width: 100%;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: min(100%, 260px);
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-card-form input,
+.open-envelope-content .card.rsvp-card .rsvp-card-form select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-card-form input:focus,
+.open-envelope-content .card.rsvp-card .rsvp-card-form select:focus {
+    outline: none;
+    border-color: #b89b67;
+}
+
+.open-envelope-content .card.rsvp-card .rsvp-card-form button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background: #8a6a3d;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 /* Location card with flower wrapper */
@@ -804,6 +841,8 @@ body {
     background: rgba(255, 255, 255, 1);
     color: #1f2937;
     justify-content: center;
+    gap: 8px;
+    padding: 12px;
 }
 
 .open-envelope-content .card.registry-card .registry-click-text {
@@ -822,6 +861,38 @@ body {
     font-size: 24px;
     text-decoration: underline;
     text-underline-offset: 3px;
+}
+
+.open-envelope-content .card.registry-card .card-venue-location {
+    width: 100%;
+    margin: 0;
+    padding: 8px;
+}
+
+.open-envelope-content .card.registry-card .venue-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #333;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+}
+
+.open-envelope-content .card.registry-card .venue-name {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.open-envelope-content .card.registry-card .venue-address {
+    font-size: 11px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+}
+
+.open-envelope-content .card.registry-card .map-link {
+    padding: 6px 12px;
+    font-size: 12px;
+    pointer-events: auto;
 }
 
 .open-envelope-content .card.image-card {
@@ -1191,7 +1262,7 @@ body {
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    cursor: pointer;
+    cursor: default;
     transition: all 0.3s ease;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     position: relative;
@@ -1210,12 +1281,12 @@ body {
 }
 
 .card:hover::before {
-    left: 100%;
+    left: -100%;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    transform: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-icon {
@@ -1238,15 +1309,15 @@ body {
 }
 
 .rsvp-card:hover {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    background: white;
 }
 
 .location-card:hover {
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: white;
 }
 
 .details-card:hover {
-    background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+    background: white;
 }
 
 /* Modal Styles */
@@ -1376,16 +1447,17 @@ body {
 #rsvp-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 8px;
+    width: min(100%, 260px);
 }
 
 #rsvp-form input,
 #rsvp-form select,
 #rsvp-form textarea {
-    padding: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 16px;
+    padding: 8px 10px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    font-size: 14px;
     font-family: inherit;
     transition: border-color 0.3s ease;
 }
@@ -1403,12 +1475,12 @@ body {
 }
 
 #rsvp-form button {
-    padding: 15px 30px;
+    padding: 8px 12px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     font-family: inherit;
@@ -1818,7 +1890,7 @@ body {
         align-items: center;
         text-align: center;
         width: 100%;
-        cursor: pointer;
+        cursor: default;
         pointer-events: auto;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
@@ -1835,7 +1907,7 @@ body {
     }
 
     .open-envelope-content .card:active {
-        transform: scale(0.95);
+        transform: none;
     }
 
     /* Staggered animation delays for cards on mobile */
@@ -2123,7 +2195,7 @@ body {
         align-items: center;
         text-align: center;
         width: 100%;
-        cursor: pointer;
+        cursor: default;
         pointer-events: auto;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
@@ -2140,7 +2212,7 @@ body {
     }
 
     .open-envelope-content .card:active {
-        transform: scale(0.95);
+        transform: none;
     }
 
     /* Staggered animation delays for cards on small mobile */
@@ -2317,7 +2389,7 @@ body {
 /* Touch-friendly interactions */
 @media (hover: none) and (pointer: coarse) {
     .card:active {
-        transform: scale(0.98);
+        transform: none;
     }
 
     .envelope-wrapper:active .envelope-image {

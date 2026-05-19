@@ -55,7 +55,7 @@
                     <img src="flower1.png" alt="Flower" class="flower-above-card flower1">
                     <img src="flower2.png" alt="Flower" class="flower-above-card flower2">
                     
-                    <!-- Clickable Cards Section - Overlay on video -->
+                    <!-- Cards Section - Overlay on video -->
                     <div class="cards-container">
                         <div class="card savedate-card" id="savedate-card">
                             <p class="save-word">Save the Date</p>
@@ -65,12 +65,16 @@
                                 <span class="date-number">20th</span>
                                 <span class="date-item">2027</span>
                             </div>
-                            <p class="save-time">9.30 AM ONWARDS</p>
-                            <p class="save-venue">The Blue, Hilton Colombo</p>
                         </div>
 
                         <div class="card registry-card" id="registry-card">
-                            <p class="registry-click-text"><span class="click-small">Click for the</span><br><span class="details-word">DETAILS</span></p>
+                            <div class="venue-location card-venue-location">
+                                <p class="venue-time">Reception 9.30 AM ONWARDS</p>
+                                <p class="venue-name">The Blue, Hilton Colombo</p>
+                                <a href="https://maps.google.com/?q=The+Blue+Hilton+Colombo" target="_blank" class="map-link">
+                                    View on Google Maps
+                                </a>
+                            </div>
                         </div>
 
                         <div class="card rsvp-card" id="rsvp-card">
@@ -78,11 +82,20 @@
                                 <span class="kindly-text">Kindly</span>
                                 <span class="rsvp-title">RSVP</span>
                             </div>
+                            <form id="rsvp-form" class="rsvp-card-form">
+                                <input type="text" placeholder="Name" required>
+                                <select required>
+                                    <option value="">Will you attend?</option>
+                                    <option value="yes">Yes, I'll be there!</option>
+                                    <option value="no">Sorry, I can't make it</option>
+                                </select>
+                                <button type="submit">Submit</button>
+                            </form>
                         </div>
 
                         <div class="card details-card" id="details-card">
                             <div class="faq-circle">
-                                <p class="faq-circle-text">click for the<br><span>FAQs</span></p>
+                                <p class="faq-circle-text">Wedding<br><span>FAQs</span></p>
                             </div>
                         </div>
 
@@ -116,25 +129,6 @@
     </div>
 
     <!-- Modal Overlays (Outside invitation-content so they're always accessible) -->
-    <div id="rsvp-modal" class="modal hidden">
-        <div class="modal-content">
-            <h2 class="modal-title-gold">RSVP</h2>
-            <p class="rsvp-deadline">RSVP by 25th of December 2025</p>
-            <form id="rsvp-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="tel" placeholder="Your Phone Number" required>
-                <select required>
-                    <option value="">Will you attend?</option>
-                    <option value="yes">Yes, I'll be there!</option>
-                    <option value="no">Sorry, I can't make it</option>
-                </select>
-                <textarea placeholder="Additional Notes (Optional)"></textarea>
-                <button type="submit">Submit RSVP</button>
-            </form>
-            <button class="modal-back-btn"><span>←</span> Back</button>
-        </div>
-    </div>
-
     <div id="location-modal" class="modal hidden">
         <div class="modal-content">
             <h2>Location</h2>
