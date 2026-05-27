@@ -2675,3 +2675,77 @@ body {
     transform: translateY(0) scale(1);
 }
 
+/* Extra compact layout for older small phones such as iPhone SE */
+@media (max-width: 380px), (max-height: 620px) {
+    .open-envelope-content .cards-container {
+        gap: 8px !important;
+        max-height: 78% !important;
+        padding: 10px 8px calc(14px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .open-envelope-content .cards-container .rsvp-card,
+    .open-envelope-content .cards-container .details-card {
+        height: auto !important;
+        min-height: calc(var(--vh, 1vh) * 50) !important;
+    }
+
+    .open-envelope-content .cards-container .rsvp-card {
+        padding: 10px !important;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-content {
+        margin-bottom: 6px;
+    }
+
+    .open-envelope-content .card.rsvp-card .kindly-text {
+        font-size: 22px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-title {
+        font-size: 34px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-card-form {
+        gap: 6px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-card-form input,
+    .open-envelope-content .card.rsvp-card .rsvp-card-form select,
+    .open-envelope-content .card.rsvp-card .rsvp-card-form textarea {
+        padding: 6px 8px;
+        font-size: 13px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-card-form textarea {
+        min-height: 42px;
+    }
+
+    .open-envelope-content .card.rsvp-card .rsvp-card-form button {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+    .open-envelope-content .card.details-card .faq-card-title {
+        font-size: 28px;
+        margin-bottom: 5px;
+    }
+
+    .open-envelope-content .card.details-card .faq-card-list {
+        gap: 5px;
+    }
+
+    .open-envelope-content .card.details-card .faq-card-item {
+        padding: 5px 6px;
+    }
+
+    .open-envelope-content .card.details-card .faq-card-item h4 {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+
+    .open-envelope-content .card.details-card .faq-card-item p {
+        font-size: 10px;
+        line-height: 1.18;
+    }
+}
+
