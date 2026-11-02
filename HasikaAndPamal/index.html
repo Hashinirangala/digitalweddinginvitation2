@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#f8de7e">
+    <title>Wedding Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&family=Italianno&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="background-music" loop preload="auto" playsinline webkit-playsinline>
+        <source src="background-musics.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Envelope Section (Initial View) -->
+    <div id="envelope-container" class="envelope-container">
+        <div class="envelope-wrapper" id="envelope-wrapper">
+            <h1 class="couple-names">Sayurima & Akash</h1>
+            <p class="wedding-date">20.01.2027</p>
+            <div class="envelope-closed" id="envelope-closed">
+                <img src="envelope.png" alt="Wedding Invitation Envelope" class="envelope-image" id="envelope-image">
+            </div>
+            <p class="click-text" id="click-text">Click to Open</p>
+        </div>
+        
+        <!-- Open Envelope State -->
+        <div class="envelope-opened hidden" id="envelope-opened">
+            <div class="open-envelope-content">
+                <div class="image-wrapper">
+                    <video src="open invite.mp4" alt="Wedding Invitation" class="envelope-background-image" autoplay muted playsinline id="invite-video"></video>
+                    <!-- Back button to return to envelope -->
+                    <button class="back-to-envelope" id="back-btn">
+                        <span class="back-icon">✉</span>
+                        <span class="back-text">Back</span>
+                    </button>
+                    
+                    <!-- You are invited text above ring -->
+                    <p class="you-are-invited">You are invited</p>
+                    
+                    <!-- Ring image appearing with cards -->
+                    <img src="Ring.png" alt="Wedding Ring" class="ring-image">
+                    
+                    <!-- Purple Envelope above cards -->
+                    <img src="purple-envelope.png" alt="Envelope" class="purple-envelope">
+
+                    <!-- Flower overlay above the scrollable cards -->
+                    <img src="flower3.png" alt="Flower" class="flower-top-left">
+                    <img src="flower1.png" alt="Flower" class="flower-above-card flower1">
+                    <img src="flower2.png" alt="Flower" class="flower-above-card flower2">
+                    
+                    <!-- Cards Section - Overlay on video -->
+                    <div class="cards-container">
+                        <div class="card savedate-card" id="savedate-card">
+                            <p class="save-word">Save the Date</p>
+                            <p class="save-day">wednesday</p>
+                            <div class="save-date-row">
+                                <span class="date-item">January</span>
+                                <span class="date-number">20th</span>
+                                <span class="date-item">2027</span>
+                            </div>
+                        </div>
+
+                        <div class="card registry-card" id="registry-card">
+                            <div class="venue-location card-venue-location">
+                                <p class="venue-time">Reception 9.30 AM ONWARDS</p>
+                                <p class="venue-name">The Blue, Hilton Colombo</p>
+                                <iframe
+                                    class="card-map"
+                                    src="https://www.google.com/maps?q=The%20Blue%20Hilton%20Colombo&output=embed"
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                                <a href="https://maps.google.com/?q=The+Blue+Hilton+Colombo" target="_blank" class="map-link">
+                                    View on Google Maps
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card rsvp-card" id="rsvp-card">
+                            <div class="rsvp-content">
+                                <span class="kindly-text">Kindly</span>
+                                <span class="rsvp-title">RSVP</span>
+                            </div>
+                            <form id="rsvp-form" class="rsvp-card-form">
+                                <input type="text" placeholder="Name" required>
+                                <select required>
+                                    <option value="">Will you attend?</option>
+                                    <option value="yes">Yes, I'll be there!</option>
+                                    <option value="no">Sorry, I can't make it</option>
+                                </select>
+                                <textarea placeholder="Note (optional)"></textarea>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+
+                        <div class="card details-card" id="details-card">
+                            <div class="faq-card-content">
+                                <h3 class="faq-card-title">FAQs</h3>
+                                <div class="faq-card-list">
+                                    <div class="faq-card-item">
+                                        <h4>What is the dress code?</h4>
+                                        <p>Come in your festive best and celebrate with us.</p>
+                                    </div>
+                                    <div class="faq-card-item">
+                                        <h4>Is there parking available?</h4>
+                                        <p>Yes, complimentary parking is available at the venue.</p>
+                                    </div>
+                                    <div class="faq-card-item">
+                                        <h4>Will there be food and drinks?</h4>
+                                        <p>Yes, lunch and refreshments will be served at the reception.</p>
+                                    </div>
+                                    <div class="faq-card-item">
+                                        <h4>Who should I contact for questions?</h4>
+                                        <p>0715341857 (Markandu Sivakumaran)<br>0772310115 (Sivakumaran Manchula)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Invitation Content (Hidden Initially) -->
+    <div id="invitation-content" class="invitation-content hidden">
+        <!-- Image Section -->
+        <div class="image-section">
+            <img src="wedding-image.jpg" alt="Wedding Photo" class="wedding-image">
+        </div>
+
+        <!-- Clickable Cards Section -->
+        <div class="cards-container">
+            <div class="card rsvp-card" id="rsvp-card">
+                <div class="card-icon">💌</div>
+                <h3>RSVP</h3>
+                <p>Let us know if you can join us</p>
+            </div>
+
+            <div class="card location-card" id="location-card">
+                <div class="card-icon">📍</div>
+                <h3>Location</h3>
+                <p>Find the venue details</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlays (Outside invitation-content so they're always accessible) -->
+    <div id="location-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Location</h2>
+            <div class="location-info">
+                <p><strong>Venue Name:</strong> <span id="venue-name">Your Venue Name</span></p>
+                <p><strong>Address:</strong> <span id="venue-address">123 Wedding Street, City, State 12345</span></p>
+                <p><strong>Date & Time:</strong> <span id="venue-datetime">Saturday, June 15, 2024 at 4:00 PM</span></p>
+                <div class="map-container">
+                    <iframe 
+                        id="venue-map"
+                        src=""
+                        width="100%" 
+                        height="300" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <a href="#" id="directions-link" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
+        </div>
+    </div>
+
+    <div id="details-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 class="faq-modal-title">Frequently Asked Questions</h2>
+            <div class="faq-info">
+                <div class="faq-item">
+                    <h3>What is the dress code?</h3>
+                    <p>Come in your festive best and celebrate with us.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there parking available?</h3>
+                    <p>Yes, complimentary parking is available at the venue.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Will there be food and drinks?</h3>
+                    <p>Yes, lunch and refreshments will be served at the reception.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Who should I contact for questions?</h3>
+                    <p>Please reach out to us at:<br>0715341857 (Markandu Sivakumaran)<br>0772310115 (Sivakumaran Manchula)</p>
+                </div>
+            </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
+        </div>
+    </div>
+
+    <div id="gallery-modal" class="modal hidden">
+        <div class="modal-content gallery-modal-content">
+            <div class="gallery-info">
+                <div class="parents-section">
+                    <p class="parents-label">Parents of the Bride</p>
+                    <p class="parents-names">Mr. Indunil Pushpakumara & Mrs. Thilani Perera</p>
+                    <p class="together-text">together with</p>
+                    <p class="parents-label">Parents of the Groom</p>
+                    <p class="parents-names">Mr. Amarasinghe Arachchige Chandrarathna & Mrs. Tusitha Samarawickrama</p>
+                    <p class="invite-text-modal">We invite you to join us on this very special day</p>
+                </div>
+            </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
+        </div>
+    </div>
+
+    <div id="registry-modal" class="modal hidden">
+        <div class="modal-content registry-modal-content">
+            <h2 class="details-modal-title">Ceremony & Reception Areas</h2>
+            <div class="venue-location">
+                <p class="venue-name">Location: Cinnamon Lakeside Hotel</p>
+                <p class="venue-address">115, Sir Chittampalam A. Gardiner Mawatha, Colombo 2</p>
+                <a href="https://maps.google.com/?q=Cinnamon+Lakeside+Colombo" target="_blank" class="map-link">
+                    📍 View on Google Maps
+                </a>
+            </div>
+            <div class="event-details-container">
+                <div class="event-section">
+                    <img src="ceremony.jpg" alt="Poruwa Ceremony" class="event-image">
+                    <h3 class="event-title">Poruwa Ceremony at 9.45 am</h3>
+                    <p class="event-venue">Garden by 180degrees</p>
+                </div>
+                <div class="event-section">
+                    <img src="reception.jpg" alt="Reception" class="event-image">
+                    <h3 class="event-title">Reception</h3>
+                    <p class="event-venue">Earl's Court</p>
+                </div>
+            </div>
+            <button class="modal-back-btn"><span>←</span> Back</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
