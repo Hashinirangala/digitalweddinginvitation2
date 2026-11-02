@@ -388,7 +388,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update location map and directions link
     // You can customize these values
-    const venueAddress = encodeURIComponent('123 Wedding Street, City, State 12345');
+    const venueAddress = encodeURIComponent('Vinrich Lake Resort Riverbank Piliyandala');
     const mapIframe = document.getElementById('venue-map');
     const directionsLink = document.getElementById('directions-link');
     
